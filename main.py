@@ -11,6 +11,7 @@ from constants import DATE_TIME_FORMAT, INCORRECT_ARGUEMENTS, INCORRECT_CREDENTI
 logging.basicConfig(filename=LOG_FILE, encoding='utf-8', level=logging.WARNING)
 
 def main(argv):
+    # Check for argument length
     if len(argv) != 3:
         logging.error(INCORRECT_ARGUEMENTS)
         return 0
@@ -43,7 +44,7 @@ def main(argv):
 
     currentDateTime = strftime(DATE_TIME_FORMAT, localtime())
 
-
+    # logging loop
     for i in range (0,len(zoneIDArr)):
         response = u'{} : {} - ZoneID: {} - Temperature: {}\N{DEGREE SIGN} - Triggered: {}.'.format(currentDateTime, argv[0], zoneIDArr[i], maxTempArr[i], triggeredArr[i])
         logging.warning(response)
